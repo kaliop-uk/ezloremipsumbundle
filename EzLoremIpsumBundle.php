@@ -12,6 +12,6 @@ class EzLoremIpsumBundle extends Bundle
     {
         parent::build($container);
 
-        $container->addCompilerPass(new TaggedServicesCompilerPass());
+        $container->addCompilerPass(new InjectResolversCompilerPass());
     }
 }
