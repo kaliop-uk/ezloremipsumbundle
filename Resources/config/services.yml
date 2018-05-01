@@ -1,0 +1,14 @@
+parameters:
+
+    ez_loremipsum_bundle.executor.loop.class: Kaliop\eZLoremIpsumBundle\Core\Executor\LoopExecutor
+
+services:
+
+    ez_migration_bundle.executor.loop:
+        class: '%ez_loremipsum_bundle.executor.loop.class%'
+        arguments:
+            - '@ez_migration_bundle.migration_service'
+        calls:
+            - ['setReferenceMatcher', ['@ez_migration_bundle.reference_matcher']]
+        tags:
+            - { name: ez_migration_bundle.executor }
