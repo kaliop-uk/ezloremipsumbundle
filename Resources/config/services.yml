@@ -1,14 +1,11 @@
 parameters:
 
-    ez_loremipsum_bundle.executor.loop.class: Kaliop\eZLoremIpsumBundle\Core\Executor\LoopExecutor
+    ez_loremipsum_bundle.reference_resolver.lorem_ipsum.class: Kaliop\eZLoremIpsumBundle\Core\ReferenceResolver\LoremIpsumResolver
 
 services:
 
-    ez_migration_bundle.executor.loop:
-        class: '%ez_loremipsum_bundle.executor.loop.class%'
-        arguments:
-            - '@ez_migration_bundle.migration_service'
-        calls:
-            - ['setReferenceMatcher', ['@ez_migration_bundle.reference_matcher']]
+    ez_loremipsum_bundle.reference_resolver.lorem_ipsum:
+        class: '%ez_loremipsum_bundle.reference_resolver.lorem_ipsum.class%'
+        #arguments: []
         tags:
-            - { name: ez_migration_bundle.executor }
+            - { name: ez_migration_bundle.reference_resolver.customreference }
