@@ -57,3 +57,7 @@ A bundle for eZPublish5 / eZPlatform dedicated to mass-creation of sample/test c
         ...
         new \Kaliop\eZLoremIpsumBundle\EzLoremIpsumBundle()
     ```
+
+## Thanks
+
+Many thanks to Crevillo for the suggestion to look at AliceBundle and to FZaninotto for all the heavy lifting

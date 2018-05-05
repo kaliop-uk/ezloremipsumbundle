@@ -1,6 +1,6 @@
 parameters:
-
-    ez_loremipsum_bundle.faker.default_locale: ~
+    # change this if you want to use a different locale than the one gotten from the current siteaccess
+    ez_loremipsum_bundle.faker.locale: ~
 
     ez_loremipsum_bundle.reference_resolver.faker.class: Kaliop\eZLoremIpsumBundle\Core\ReferenceResolver\FakerResolver
 
@@ -9,6 +9,7 @@ services:
     ez_loremipsum_bundle.reference_resolver.faker:
         class: '%ez_loremipsum_bundle.reference_resolver.faker.class%'
         arguments:
-            - '%ez_loremipsum_bundle.faker.default_locale%'
+            - '@ezpublish.config.resolver'
+            - '%ez_loremipsum_bundle.faker.locale%'
         tags:
             - { name: ez_migration_bundle.reference_resolver.customreference }

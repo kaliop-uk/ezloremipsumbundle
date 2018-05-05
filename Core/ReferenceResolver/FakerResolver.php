@@ -3,6 +3,7 @@
 namespace Kaliop\eZLoremIpsumBundle\Core\ReferenceResolver;
 
 use Faker\Factory;
+use eZ\Publish\Core\MVC\ConfigResolverInterface;
 use Kaliop\eZMigrationBundle\Core\ReferenceResolver\AbstractResolver;
 use Kaliop\eZMigrationBundle\API\EnumerableReferenceResolverInterface;
 
@@ -10,17 +11,18 @@ class FakerResolver extends AbstractResolver implements EnumerableReferenceResol
 {
     protected $referencePrefixes = array('faker:');
 
+    /** @var \Faker\Generator $faker */
     protected $faker;
 
-    public function __construct($locale = null)
+    public function __construct(ConfigResolverInterface $configResolver, $locale = null)
     {
         parent::__construct();
 
         if ($locale === null) {
-            /// @todo get default locale from current siteaccess
-            $locale = 'eng-GB';
+            $locale = reset($configResolver->getParameter('languages'));
         }
         $locale = $this->convertLocale($locale);
+        /// @todo allow to register custom providers
         $this->faker = Factory::create($locale);
     }
 
