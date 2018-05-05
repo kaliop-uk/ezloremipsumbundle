@@ -19,7 +19,8 @@ class FakerResolver extends AbstractResolver implements EnumerableReferenceResol
         parent::__construct();
 
         if ($locale === null) {
-            $locale = reset($configResolver->getParameter('languages'));
+            $locales = $configResolver->getParameter('languages');
+            $locale = reset($locales);
         }
         $locale = $this->convertLocale($locale);
         /// @todo allow to register custom providers
