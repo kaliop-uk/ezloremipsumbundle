@@ -10,6 +10,7 @@ services:
         class: '%ez_loremipsum_bundle.reference_resolver.faker.class%'
         arguments:
             - '@ezpublish.config.resolver'
+            - '@ez_migration_bundle.reference_resolver.customreference'
             - '%ez_loremipsum_bundle.faker.locale%'
         tags:
             - { name: ez_migration_bundle.reference_resolver.customreference }

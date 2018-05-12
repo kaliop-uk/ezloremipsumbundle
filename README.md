@@ -83,8 +83,10 @@ of the Faker library. In no particular order, it can be used to generate:
 - domain names
 - numbers
 - images and files
+
 The full list of supported data is documented at https://github.com/fzaninotto/Faker
 
+A more detailed description of the supported syntax is given in the [DSL Language description](Resources/doc/DSL/Faker.md)
 
 ## Thanks
 
