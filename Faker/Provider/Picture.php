@@ -3,8 +3,10 @@
 namespace Kaliop\eZLoremIpsumBundle\Faker\Provider;
 
 use Faker\Provider\Base;
+
 /**
  * Almost the same as Image from Faker, but uses picsum.photos
+ * @todo add support for https://loremflickr.com/ as an alternative
  */
 class Picture extends Base
 {
@@ -20,7 +22,7 @@ class Picture extends Base
         if ($randomize) {
             $url .= '?random';
         }
-var_dump($baseUrl . $url);
+
         return $baseUrl . $url;
     }
 
