@@ -2,6 +2,10 @@ parameters:
     # change this if you want to use a different locale than the one gotten from the current siteaccess
     ez_loremipsum_bundle.faker.locale: ~
 
+    # add custom providers to faker
+    ez_loremipsum_bundle.faker.providers:
+        - "Kaliop\\eZLoremIpsumBundle\\Faker\\Provider\\Picture"
+
     ez_loremipsum_bundle.reference_resolver.faker.class: Kaliop\eZLoremIpsumBundle\Core\ReferenceResolver\FakerResolver
 
 services:
@@ -12,5 +16,6 @@ services:
             - '@ezpublish.config.resolver'
             - '@ez_migration_bundle.reference_resolver.customreference'
             - '%ez_loremipsum_bundle.faker.locale%'
+            - '%ez_loremipsum_bundle.faker.providers%'
         tags:
             - { name: ez_migration_bundle.reference_resolver.customreference }

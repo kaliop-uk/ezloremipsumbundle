@@ -36,4 +36,10 @@ you can use this instead:
     
 ## Providers
 
-The full list of available providers is documented at https://github.com/fzaninotto/Faker
+* The full list of default providers is documented at https://github.com/fzaninotto/Faker
+
+* Coming with the bundle is a provider that registers the `picture` and `pictureUrl` properties.
+    Those behave almost exactly like the native `image` and `imageUrl` ones, except for not supporting the 'category'.
+    They retrieve the images from service picsum.photos instead of lorempixel. 
+
+* It is also possible to register custom providers from your own code.

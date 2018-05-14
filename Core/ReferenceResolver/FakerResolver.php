@@ -18,7 +18,8 @@ class FakerResolver extends AbstractResolver implements EnumerableReferenceResol
 
     protected $referenceResolver;
 
-    public function __construct(ConfigResolverInterface $configResolver, ReferenceResolverInterface $referenceResolver, $locale = null)
+    public function __construct(ConfigResolverInterface $configResolver, ReferenceResolverInterface $referenceResolver,
+        $locale = null, $extraProviders = array())
     {
         parent::__construct();
 
@@ -28,8 +29,10 @@ class FakerResolver extends AbstractResolver implements EnumerableReferenceResol
         }
         $locale = $this->convertLocale($locale);
         $this->referenceResolver = $referenceResolver;
-        /// @todo allow to register custom providers
         $this->faker = Factory::create($locale);
+        foreach($extraProviders as $extraProvider) {
+            $this->faker->addProvider(new $extraProvider($this->faker));
+        }
     }
 
     /**

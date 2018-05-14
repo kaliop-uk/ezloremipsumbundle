@@ -37,3 +37,9 @@ Version 1.1
                     lang: eng-GB
                     keywords:
                         eng-GB: "[faker: shuffle(resolve('reference:aaa'))]"
+
+* New: it is now possible register custom Faker providers via the parameter `ez_loremipsum_bundle.faker.providers`
+
+* New: the bundle now includes a custom Faker providers that registers the `picture` and `pictureUrl` properties.
+    Those behave almost exactly like the native `image` and `imageUrl` ones, except for not supporting the 'category'.
+    They retrieve the images from service picsum.photos instead of lorempixel. 
