@@ -38,8 +38,14 @@ you can use this instead:
 
 * The full list of default providers is documented at https://github.com/fzaninotto/Faker
 
-* Coming with the bundle is a provider that registers the `picture` and `pictureUrl` properties.
-    Those behave almost exactly like the native `image` and `imageUrl` ones, except for not supporting the 'category'.
-    They retrieve the images from service picsum.photos instead of lorempixel. 
+* Coming with the bundle are providers that register:
+ 
+    * the `picture` and `pictureUrl` properties.
+        Those behave almost exactly like the native `image` and `imageUrl` ones, except for not supporting the 'category'.
+        They retrieve the images from service picsum.photos instead of lorempixel.
+ 
+    * the `randomXmlText($maxDepth=4, $maxWidth=4)` property.
+        It works as the original `randomHtml` property, except that it generates rich text compatible with the XmlText
+        field type.
 
 * It is also possible to register custom providers from your own code.

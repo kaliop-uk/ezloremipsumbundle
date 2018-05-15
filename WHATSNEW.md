@@ -1,3 +1,11 @@
+Version 1.2
+===========
+
+* New: the bundle now includes a custom Faker provider that registers the `randomXmlText($maxDepth=4, $maxWidth=4)` property.
+    It works as the original `randomHtml` provider, except that it generates rich text compatible with the XmlText
+    field type.
+
+
 Version 1.1
 ===========
 
@@ -40,6 +48,6 @@ Version 1.1
 
 * New: it is now possible register custom Faker providers via the parameter `ez_loremipsum_bundle.faker.providers`
 
-* New: the bundle now includes a custom Faker providers that registers the `picture` and `pictureUrl` properties.
+* New: the bundle now includes a custom Faker provider that registers the `picture` and `pictureUrl` properties.
     Those behave almost exactly like the native `image` and `imageUrl` ones, except for not supporting the 'category'.
     They retrieve the images from service picsum.photos instead of lorempixel. 

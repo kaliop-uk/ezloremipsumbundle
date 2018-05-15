@@ -6,7 +6,7 @@ use Faker\Provider\Base;
 
 /**
  * Almost the same as Image from Faker, but uses picsum.photos
- * @todo add support for https://loremflickr.com/ as an alternative
+ * @todo add support for https://loremflickr.com/ as an alternative, or see the lst at https://www.johanbostrom.se/blog/the-best-image-placeholder-services-on-the-web
  */
 class Picture extends Base
 {

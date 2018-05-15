@@ -5,6 +5,7 @@ parameters:
     # add custom providers to faker
     ez_loremipsum_bundle.faker.providers:
         - "Kaliop\\eZLoremIpsumBundle\\Faker\\Provider\\Picture"
+        - "Kaliop\\eZLoremIpsumBundle\\Faker\\Provider\\XmlText"
 
     ez_loremipsum_bundle.reference_resolver.faker.class: Kaliop\eZLoremIpsumBundle\Core\ReferenceResolver\FakerResolver
 
