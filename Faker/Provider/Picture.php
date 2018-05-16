@@ -2,15 +2,14 @@
 
 namespace Kaliop\eZLoremIpsumBundle\Faker\Provider;
 
-use Faker\Provider\Base;
-
 /**
  * Almost the same as Image from Faker, but uses picsum.photos
- * @todo add support for https://loremflickr.com/ as an alternative, or see the lst at https://www.johanbostrom.se/blog/the-best-image-placeholder-services-on-the-web
+ * @todo add support for https://loremflickr.com/ as an alternative, or see the list at
+ *       https://www.johanbostrom.se/blog/the-best-image-placeholder-services-on-the-web
  */
 class Picture extends Base
 {
-    public static function pictureUrl($width = 640, $height = 480, $randomize = true, $word = null, $gray = false)
+    public function pictureUrl($width = 640, $height = 480, $randomize = true, $word = null, $gray = false)
     {
         $baseUrl = "https://picsum.photos/";
         $url = "{$width}/{$height}/";
@@ -26,7 +25,6 @@ class Picture extends Base
         return $baseUrl . $url;
     }
 
-
     /**
      * Download a remote random image to disk and return its location
      *
@@ -34,7 +32,7 @@ class Picture extends Base
      *
      * @example '/path/to/dir/13b73edae8443990be1aa8f1a483bc27.jpg'
      */
-    public static function picture($dir = null, $width = 640, $height = 480, $fullPath = true, $randomize = true, $word = null)
+    public function picture($dir = null, $width = 640, $height = 480, $fullPath = true, $randomize = true, $word = null)
     {
         $dir = is_null($dir) ? sys_get_temp_dir() : $dir; // GNU/Linux / OS X / Windows compatible
         // Validate directory path
@@ -48,7 +46,7 @@ class Picture extends Base
         $filename = $name .'.jpg';
         $filepath = $dir . DIRECTORY_SEPARATOR . $filename;
 
-        $url = static::pictureUrl($width, $height, $randomize, $word);
+        $url = $this->pictureUrl($width, $height, $randomize, $word);
 
         // save file
         if (function_exists('curl_exec')) {

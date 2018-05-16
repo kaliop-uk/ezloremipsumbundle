@@ -1,3 +1,15 @@
+Version 1.3
+===========
+
+* New: the bundle now includes a custom Faker provider that registers the properties `noun`, `adjective` and `animal`.
+    Those are not yet multilingual and will return only english words.
+
+* New: the bundle now includes a custom Faker provider that registers the `pdfText` property. It can be used to generate
+    pdf files which contain random rich text. 
+
+* Minor tweaks to the xmlText generator
+
+
 Version 1.2
 ===========
 

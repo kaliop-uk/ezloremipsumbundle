@@ -48,4 +48,7 @@ you can use this instead:
         It works as the original `randomHtml` property, except that it generates rich text compatible with the XmlText
         field type.
 
+    * the `pdfFile($dir = '/tmp$, pages=5, $title = '', $author = '', $subject = '', $keywords = '')` property.
+        It can be used to generate PDF files with random contents, and will return the name of the generated file
+    
 * It is also possible to register custom providers from your own code.

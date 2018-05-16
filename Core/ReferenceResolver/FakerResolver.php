@@ -29,6 +29,7 @@ class FakerResolver extends AbstractResolver implements EnumerableReferenceResol
         }
         $locale = $this->convertLocale($locale);
         $this->referenceResolver = $referenceResolver;
+
         $this->faker = Factory::create($locale);
         foreach($extraProviders as $extraProvider) {
             $this->faker->addProvider(new $extraProvider($this->faker));

@@ -44,6 +44,9 @@ each.
 * eZPublish 2014.11 or later or eZPlatform
 * eZMigrationBundle
 * Faker from FZaninotto
+* TCPDF from tecnick.com
+
+(all of the above are handled automatically using composer)
 
 
 ## Installation

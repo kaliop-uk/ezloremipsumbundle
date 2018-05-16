@@ -2,10 +2,6 @@
 
 namespace Kaliop\eZLoremIpsumBundle\Faker\Provider;
 
-use Faker\Provider\Base;
-use Faker\UniqueGenerator;
-use Faker\Generator;
-
 /**
  * NB: A very crude implementation for now
  * @see https://github.com/ezsystems/ezpublish-kernel/tree/master/eZ/Publish/Core/FieldType/Tests/RichText/Converter/Xslt/_fixtures/ezxml
@@ -26,13 +22,6 @@ class XmlText extends Base
     const I_TAG = "emphasize";
     const CUSTOM_TAG = "custom";
 
-    private $idGenerator;
-
-    public function __construct(Generator $generator)
-    {
-        parent::__construct($generator);
-    }
-
     /**
      * @param integer $maxDepth
      * @param integer $maxWidth
@@ -42,7 +31,6 @@ class XmlText extends Base
     public function randomXmlText($maxDepth = 4, $maxWidth = 4)
     {
         $document = new \DOMDocument();
-        $this->idGenerator = new UniqueGenerator($this->generator);
 
         $body = $document->createElement("section");
         $body->setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xhtml', 'http://ez.no/namespaces/ezpublish3/xhtml/');
@@ -131,10 +119,10 @@ class XmlText extends Base
      * @param \DOMElement $element
      * @param int $maxLength
      */
-    private function addRandomP(\DOMElement $element, $maxLength = 30)
+    private function addRandomP(\DOMElement $element, $maxLength = 50)
     {
         $p = $element->ownerDocument->createElement(static::P_TAG);
-        $text = $element->ownerDocument->createTextNode($this->generator->sentence(mt_rand(1, $maxLength)));
+        $text = $element->ownerDocument->createTextNode($this->getSentence(mt_rand(1, $maxLength)));
         // left-aligned paragraphs have double frequency
         switch (mt_rand(1, 4)) {
             case 1:
@@ -151,9 +139,9 @@ class XmlText extends Base
     private function addRandomA(\DOMElement $element, $maxLength = 10)
     {
         $p = $element->ownerDocument->createElement(static::P_TAG);
-        $text = $element->ownerDocument->createTextNode($this->generator->sentence(mt_rand(1, $maxLength)));
+        $text = $element->ownerDocument->createTextNode($this->getSentence(mt_rand(1, $maxLength)));
         $node = $element->ownerDocument->createElement(static::A_TAG);
-        $node->setAttribute("url", $this->generator->url);
+        $node->setAttribute("url", $this->getUrl());
         $node->appendChild($text);
         $this->wrapInParagraph($node, $element);
     }
@@ -161,7 +149,7 @@ class XmlText extends Base
     private function addRandomH(\DOMElement $element, $maxLength = 10)
     {
         $h = static::H_TAG;
-        $text = $element->ownerDocument->createTextNode($this->generator->sentence(mt_rand(1, $maxLength)));
+        $text = $element->ownerDocument->createTextNode($this->getSentence(mt_rand(1, $maxLength)));
         $node = $element->ownerDocument->createElement($h);
         $node->appendChild($text);
         $element->appendChild($node);
@@ -170,7 +158,7 @@ class XmlText extends Base
 
     private function addRandomB(\DOMElement $element, $maxLength = 10)
     {
-        $text = $element->ownerDocument->createTextNode($this->generator->sentence(mt_rand(1, $maxLength)));
+        $text = $element->ownerDocument->createTextNode($this->getSentence(mt_rand(1, $maxLength)));
         $node = $element->ownerDocument->createElement(static::B_TAG);
         $node->appendChild($text);
         $this->wrapInParagraph($node, $element);
@@ -178,7 +166,7 @@ class XmlText extends Base
 
     private function addRandomU(\DOMElement $element, $maxLength = 10)
     {
-        $text = $element->ownerDocument->createTextNode($this->generator->sentence(mt_rand(1, $maxLength)));
+        $text = $element->ownerDocument->createTextNode($this->getSentence(mt_rand(1, $maxLength)));
         $node = $element->ownerDocument->createElement(static::CUSTOM_TAG);
         $node->setAttribute('name', 'underline');
         $node->appendChild($text);
@@ -187,13 +175,13 @@ class XmlText extends Base
 
     private function addRandomI(\DOMElement $element, $maxLength = 10)
     {
-        $text = $element->ownerDocument->createTextNode($this->generator->sentence(mt_rand(1, $maxLength)));
+        $text = $element->ownerDocument->createTextNode($this->getSentence(mt_rand(1, $maxLength)));
         $node = $element->ownerDocument->createElement(static::I_TAG);
         $node->appendChild($text);
         $this->wrapInParagraph($node, $element);
     }
 
-    private function addRandomTable(\DOMElement $element, $maxRows = 10, $maxCols = 6, $maxTitle = 4, $maxLength = 10)
+    private function addRandomTable(\DOMElement $element, $maxRows = 10, $maxCols = 6, $maxLength = 10)
     {
         $rows = mt_rand(1, $maxRows);
         $cols = mt_rand(1, $maxCols);
@@ -205,7 +193,7 @@ class XmlText extends Base
             $table->appendChild($tr);
             for ($j = 0; $j < $cols; $j++) {
                 $th = $element->ownerDocument->createElement(static::TD_TAG);
-                $th->textContent = $this->generator->sentence(mt_rand(1, $maxLength));
+                $th->textContent = $this->getSentence(mt_rand(1, $maxLength));
                 $tr->appendChild($th);
             }
         }
@@ -219,7 +207,7 @@ class XmlText extends Base
         for ($i = 0; $i < $num; $i++) {
             $li = $element->ownerDocument->createElement(static::LI_TAG);
             $lip = $element->ownerDocument->createElement(static::P_TAG);
-            $lip->textContent = $this->generator->sentence(mt_rand(1, $maxLength));
+            $lip->textContent = $this->getSentence(mt_rand(1, $maxLength));
             $li->appendChild($lip);
             $ul->appendChild($li);
         }
@@ -233,26 +221,36 @@ class XmlText extends Base
         for ($i = 0; $i < $num; $i++) {
             $li = $element->ownerDocument->createElement(static::LI_TAG);
             $lip = $element->ownerDocument->createElement(static::P_TAG);
-            $lip->textContent = $this->generator->sentence(mt_rand(1, $maxLength));
+            $lip->textContent = $this->getSentence(mt_rand(1, $maxLength));
             $li->appendChild($lip);
             $ul->appendChild($li);
         }
         $this->wrapInParagraph($ul, $element);
     }
 
-    private function wrapInParagraph(\DOMElement $element, \DOMElement $parent, $maxLength = 10)
+    protected function wrapInParagraph(\DOMElement $element, \DOMElement $parent, $maxLength = 10)
     {
         $p = $element->ownerDocument->createElement(static::P_TAG);
-        $chance = mt_rand(1, 3);
-        if ($chance == 1) {
-            $text = $element->ownerDocument->createTextNode($this->generator->sentence(mt_rand(1, $maxLength)) . ' ');
+        $chance = mt_rand(1, 4);
+        if ($chance == 1 || $chance == 4) {
+            $text = $element->ownerDocument->createTextNode($this->getSentence(mt_rand(1, $maxLength)) . ' ');
             $p->appendChild($text);
         }
         $p->appendChild($element);
-        if ($chance == 2) {
-            $text = $element->ownerDocument->createTextNode(' ' . $this->generator->sentence(mt_rand(1, $maxLength)));
+        if ($chance == 2 || $chance == 4) {
+            $text = $element->ownerDocument->createTextNode(' ' . $this->getSentence(mt_rand(1, $maxLength)));
             $p->appendChild($text);
         }
         $parent->appendChild($p);
+    }
+    
+    protected function getSentence($nbWords = 6, $variableNbWords = true)
+    {
+        return $this->generator->sentence($nbWords, $variableNbWords);
+    }
+
+    protected function getUrl()
+    {
+        return $this->generator->url;
     }
 }

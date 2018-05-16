@@ -2,10 +2,12 @@ parameters:
     # change this if you want to use a different locale than the one gotten from the current siteaccess
     ez_loremipsum_bundle.faker.locale: ~
 
-    # add custom providers to faker
+    # add custom providers to faker. These classes are expected to have a specific constructor signature
     ez_loremipsum_bundle.faker.providers:
         - "Kaliop\\eZLoremIpsumBundle\\Faker\\Provider\\Picture"
         - "Kaliop\\eZLoremIpsumBundle\\Faker\\Provider\\XmlText"
+        - "Kaliop\\eZLoremIpsumBundle\\Faker\\Provider\\WordList"
+        - "Kaliop\\eZLoremIpsumBundle\\Faker\\Provider\\PdfFile"
 
     ez_loremipsum_bundle.reference_resolver.faker.class: Kaliop\eZLoremIpsumBundle\Core\ReferenceResolver\FakerResolver
 
