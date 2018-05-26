@@ -1,3 +1,13 @@
+Version 1.4
+===========
+
+* New: the bundle now includes a custom Faker generator that registers the modifier `maxDistinct($maxElements = 100, $reset = false)`
+    This can be used when you want to limit a generated element to be limited to have a limited set of distinct values.
+    If can be f.e. useful when you generate images or files by querying remote services which impose limits on the
+    number of calls that can be placed.
+    Eg: by using `maxDistinct().picture`, your code would only be retrieving 100 different pictures.
+    Please note that this modifier does not insure uniqueness of the results, but it can be combined with `unique()`. 
+
 Version 1.3
 ===========
 

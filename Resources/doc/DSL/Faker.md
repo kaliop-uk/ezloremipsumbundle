@@ -2,6 +2,7 @@ This bundle provides a reference resolver that is powered by the Faker library.
 
 You can use it to dynamically generate random text, email addresses, dates and much more.
 
+
 ## Syntax
 
 It supports the following syntax:
@@ -22,6 +23,8 @@ using modifiers:
     
     faker:valid().aProvider
 
+    faker:maxDistinct().aProvider
+
 resolving references in provider parameters:
 
     faker:aProviderWithParameters(resolve('reference.some_reference_id'), resolve('reference.another_reference_id'))
@@ -33,6 +36,7 @@ NB: given the limitations of the MigrationBundle reference parser, this will *no
 you can use this instead:
 
     faker:aProviderWithParameters({ 0: 'hello', 1: 'world'})
+
     
 ## Providers
 
@@ -51,4 +55,11 @@ you can use this instead:
     * the `pdfFile($dir = '/tmp$, pages=5, $title = '', $author = '', $subject = '', $keywords = '')` property.
         It can be used to generate PDF files with random contents, and will return the name of the generated file
     
+    * the `maxDistinct($maxElements = 100, $reset = false)` modifier.
+        This can be used when you want to limit a generated property to have a limited set of distinct values.
+        If can be f.e. useful when you generate images or files by querying remote services which impose limits on the
+        number of calls that can be placed.
+        Eg: by using `maxDistinct(500).picture`, your code would only be retrieving 500 different pictures.
+        Please note that this modifier does not insure uniqueness of the results, but it can be combined with `unique()`. 
+
 * It is also possible to register custom providers from your own code.
