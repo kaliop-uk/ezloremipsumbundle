@@ -94,3 +94,9 @@ A more detailed description of the supported syntax is given in the [DSL Languag
 ## Thanks
 
 Many thanks to Crevillo for the suggestion to look at AliceBundle and to FZaninotto for all the heavy lifting
+
+[![License](https://poser.pugx.org/kaliop/ezloremipsumbundle/license)](https://packagist.org/packages/kaliop/ezloremipsumbundle)
+[![Latest Stable Version](https://poser.pugx.org/kaliop/ezloremipsumbundle/v/stable)](https://packagist.org/packages/kaliop/ezloremipsumbundle)
+[![Total Downloads](https://poser.pugx.org/kaliop/ezloremipsumbundle/downloads)](https://packagist.org/packages/kaliop/ezloremipsumbundle)
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kaliop-uk/ezloremipsumbundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/kaliop-uk/ezloremipsumbundle/?branch=master)
