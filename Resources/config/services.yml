@@ -8,6 +8,7 @@ parameters:
         - "Kaliop\\eZLoremIpsumBundle\\Faker\\Provider\\XmlText"
         - "Kaliop\\eZLoremIpsumBundle\\Faker\\Provider\\WordList"
         - "Kaliop\\eZLoremIpsumBundle\\Faker\\Provider\\PdfFile"
+        - "Kaliop\\eZLoremIpsumBundle\\Faker\\Provider\\RichText"
 
     ez_loremipsum_bundle.reference_resolver.faker.class: Kaliop\eZLoremIpsumBundle\Core\ReferenceResolver\FakerResolver
 
