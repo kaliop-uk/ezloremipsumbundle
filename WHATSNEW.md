@@ -1,3 +1,9 @@
+Version 1.5
+===========
+
+* New: the bundle now includes a `randomRichText` provider. It works like `randomXmlText`, but for RichText fields used
+    in eZPlatform
+
 Version 1.4
 ===========
 
