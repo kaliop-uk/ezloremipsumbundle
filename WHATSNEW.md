@@ -1,8 +1,16 @@
+Version 1.5.1
+=============
+
+* Fix: the `picture` provider now returns `null` instead of `false` when failing to download an image, as that is the
+    only value supported by the Migration Bundle for empty image fields.   
+
+
 Version 1.5
 ===========
 
 * New: the bundle now includes a `randomRichText` provider. It works like `randomXmlText`, but for RichText fields used
     in eZPlatform
+
 
 Version 1.4
 ===========
@@ -13,6 +21,7 @@ Version 1.4
     number of calls that can be placed.
     Eg: by using `maxDistinct().picture`, your code would only be retrieving 100 different pictures.
     Please note that this modifier does not insure uniqueness of the results, but it can be combined with `unique()`. 
+
 
 Version 1.3
 ===========

@@ -91,6 +91,9 @@ The full list of supported data is documented at https://github.com/fzaninotto/F
 
 A more detailed description of the supported syntax is given in the [DSL Language description](Resources/doc/DSL/Faker.md)
 
+*NB* there is a known bug when using the `image` provider and there is a problem downloading an image file from the
+remote service. The recommended workaround is to use the `picture` provider instead.
+
 ## Thanks
 
 Many thanks to Crevillo for the suggestion to look at AliceBundle and to FZaninotto for all the heavy lifting

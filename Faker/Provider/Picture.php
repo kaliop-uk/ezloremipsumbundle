@@ -73,7 +73,7 @@ class Picture extends Base
 
         if (!$success) {
             // could not contact the distant URL or HTTP error - fail silently.
-            return false;
+            return null;
         }
 
         return $fullPath ? $filepath : $filename;
