@@ -54,7 +54,7 @@ each.
 1. get the bundle via composer
 
     ```
-    composer require kaliop/ezloreipsumbundle
+    composer require kaliop/ezloremipsumbundle
     ```
 
 2. activate it in your Kernel's `registerBundles()` method
