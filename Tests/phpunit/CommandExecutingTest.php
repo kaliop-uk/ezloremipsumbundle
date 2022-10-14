@@ -143,7 +143,7 @@ abstract class CommandTestBase extends KernelTestCase
 /// @todo check: can we leave this to the parent class from Symfony?
 if (method_exists(\ReflectionMethod::class, 'hasReturnType') && (new \ReflectionMethod(TestCase::class, 'tearDown'))->hasReturnType()) {
     // eval is required for php 5.6 compatibility
-    eval('abstract class CommandTest extends CommandTestBase
+    eval('abstract class CommandExecutingTest extends CommandTestBase
     {
         protected function setUp(): void
         {
@@ -156,7 +156,7 @@ if (method_exists(\ReflectionMethod::class, 'hasReturnType') && (new \Reflection
         }
     }');
 } else {
-    abstract class CommandTest extends CommandTestBase
+    abstract class CommandExecutingTest extends CommandTestBase
     {
         protected function setUp()
         {
