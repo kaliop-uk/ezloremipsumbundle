@@ -33,7 +33,7 @@ A bundle for eZPublish5 / eZPlatform dedicated to mass-creation of sample/test c
                             parent_location: reference:parent_folder_loc
                             attributes:
                                 name: "Folder [faker:unixTime]"
- 
+
 As you can probably guess from the above, this code will create a total of 20 contents of type 'Folder', nested in 2
 levels, with each top-level folder having 3 children. The names of the top-level folders include 3 random latin words
 each.
@@ -102,4 +102,6 @@ Many thanks to Crevillo for the suggestion to look at AliceBundle and to FZanino
 [![Latest Stable Version](https://poser.pugx.org/kaliop/ezloremipsumbundle/v/stable)](https://packagist.org/packages/kaliop/ezloremipsumbundle)
 [![Total Downloads](https://poser.pugx.org/kaliop/ezloremipsumbundle/downloads)](https://packagist.org/packages/kaliop/ezloremipsumbundle)
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kaliop-uk/ezloremipsumbundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/kaliop-uk/ezloremipsumbundle/?branch=master)
+[![Build Status](https://github.com/kaliop-uk/ezloremipsumbundle/actions/workflows/ci.yml/badge.svg)](https://github.com/kaliop-uk/ezloremipsumbundle/actions/workflows/ci.yml)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kaliop-uk/ezloremipsumbundle/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/kaliop-uk/ezloremipsumbundle/?branch=main)
+[![Code Coverage](https://codecov.io/gh/kaliop-uk/ezloremipsumbundle/branch/main/graph/badge.svg)](https://codecov.io/gh/kaliop-uk/ezloremipsumbundle)
