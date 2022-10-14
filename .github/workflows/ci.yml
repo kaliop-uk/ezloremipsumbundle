@@ -91,6 +91,8 @@ jobs:
             # This sets up php and starts mysql
             -
                 run: './teststack/bin/setup.sh'
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             -
                 if: ${{ matrix.php == '7.4' }}
                 run: |
