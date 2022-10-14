@@ -2,12 +2,12 @@
 
 namespace Kaliop\eZLoremIpsumBundle\Core\ReferenceResolver;
 
-use Faker\Factory;
-use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use eZ\Publish\Core\MVC\ConfigResolverInterface;
+use Faker\Factory;
 use Kaliop\eZMigrationBundle\Core\ReferenceResolver\AbstractResolver;
 use Kaliop\eZMigrationBundle\API\EnumerableReferenceResolverInterface;
 use Kaliop\eZMigrationBundle\API\ReferenceResolverInterface;
+use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 
 class FakerResolver extends AbstractResolver implements EnumerableReferenceResolverInterface
 {

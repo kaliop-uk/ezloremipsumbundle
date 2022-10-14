@@ -1,8 +1,20 @@
+Version 1.6.0 (unreleased)
+==========================
+
+* Make compatible with eZMigrationBundle 5.13 and later
+
+* Move from `master` to `main` branch
+
+* Move from Travis to GitHub Actions for CI testing
+
+* Bump the version of phpunit used to run the tests from 4.x/5.x to 5.x/8.x
+
+
 Version 1.5.1
 =============
 
 * Fix: the `picture` provider now returns `null` instead of `false` when failing to download an image, as that is the
-    only value supported by the Migration Bundle for empty image fields.   
+    only value supported by the Migration Bundle for empty image fields.
 
 
 Version 1.5
@@ -20,7 +32,7 @@ Version 1.4
     If can be f.e. useful when you generate images or files by querying remote services which impose limits on the
     number of calls that can be placed.
     Eg: by using `maxDistinct().picture`, your code would only be retrieving 100 different pictures.
-    Please note that this modifier does not insure uniqueness of the results, but it can be combined with `unique()`. 
+    Please note that this modifier does not insure uniqueness of the results, but it can be combined with `unique()`.
 
 
 Version 1.3
@@ -30,7 +42,7 @@ Version 1.3
     Those are not yet multilingual and will return only english words.
 
 * New: the bundle now includes a custom Faker provider that registers the `pdfText` property. It can be used to generate
-    pdf files which contain random rich text. 
+    pdf files which contain random rich text.
 
 * Minor tweaks to the xmlText generator
 
@@ -87,4 +99,4 @@ Version 1.1
 
 * New: the bundle now includes a custom Faker provider that registers the `picture` and `pictureUrl` properties.
     Those behave almost exactly like the native `image` and `imageUrl` ones, except for not supporting the 'category'.
-    They retrieve the images from service picsum.photos instead of lorempixel. 
+    They retrieve the images from service picsum.photos instead of lorempixel.
