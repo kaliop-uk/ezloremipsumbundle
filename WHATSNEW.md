@@ -1,11 +1,13 @@
 Version 1.6.0 (unreleased)
 ==========================
 
-* Make compatible with eZMigrationBundle 5.13 and later
+* Mark compatible with eZMigrationBundle 5.13 and later
+
+* Bump the version of faker used: we now use fakerphp/faker instead of fzaninotto/faker, and min. version is 1.9.1
 
 * Move from `master` to `main` branch
 
-* Move from Travis to GitHub Actions for CI testing
+* Introduce GitHub Actions for CI testing
 
 * Bump the version of phpunit used to run the tests from 4.x/5.x to 5.x/8.x
 
