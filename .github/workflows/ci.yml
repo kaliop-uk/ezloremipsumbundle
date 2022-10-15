@@ -44,7 +44,7 @@ jobs:
                       ez_composer_lock: ''
                       operating-system: 'ubuntu-22.04'
                     - php: '7.3'
-                      ez_bundles: 'Kaliop\eZWorkflowEngineBundleEzWorkflowEngineBundle Kaliop\eZMigrationBundle\EzMigrationBundle
+                      ez_bundles: 'Kaliop\eZWorkflowEngineBundleEzWorkflowEngineBundle Kaliop\eZMigrationBundle\EzMigrationBundle'
                       ez_packages: 'ezsystems/ezplatform:~2.4.2 kaliop/ezmigrationbundle:~6.1.0 ezsystems/behatbundle:^6.5 sensio/generator-bundle'
                       ez_composer_lock: ''
                       operating-system: 'ubuntu-22.04'
