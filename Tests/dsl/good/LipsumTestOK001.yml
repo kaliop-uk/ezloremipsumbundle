@@ -1,0 +1,90 @@
+# SETUP
+-
+    type: content_type
+    mode: create
+    content_type_group: 1
+    identifier: klib_test_001
+    name: Kaliop LIpsum Bundle Test Class 1
+    name_pattern: '<name>'
+    is_container: true
+    always_available: true
+    attributes:
+        -
+            type: ezstring
+            name: Name
+            identifier: name
+        -
+            type: ezxmltext
+            name: Body
+            identifier: body
+        -
+            type: ezbinaryfile
+            name: File
+            identifier: file
+        #-
+        #    type: ezimage
+        #    name: Image
+        #    identifier: image
+        -
+            type: eztime
+            name: Time
+            identifier: time
+
+# EXECUTE
+-
+    type: loop
+    repeat: 5
+    steps:
+        -
+            type: content
+            mode: create
+            content_type: klib_test_001
+            parent_location: 2
+            attributes:
+                name: " Test item [loop:iteration] - [faker:sentence(3)]"
+            references:
+                -
+                    attribute: location_id
+                    identifier: parent_folder_loc
+                    overwrite: true
+        -
+            type: loop
+            repeat: 3
+            steps:
+                -
+                    type: content
+                    mode: create
+                    content_type: klib_test_001
+                    parent_location: reference:parent_folder_loc
+                    attributes:
+                        name: "Test item [faker:uuid]"
+                        time: "@[faker:unixTime]"
+                        body: "[faker:randomXmlText()]"
+                        file: "[faker:pdfFile()]"
+
+# VERIFY
+-
+    type: content
+    mode: load
+    match:
+        content_type: klib_test_001
+    references:
+        contents_count: count
+-
+    type: assert
+    target: reference
+    identifier: reference:contents_count
+    test:
+        equals: 20
+
+# TEARDOWN
+-
+    type: content
+    mode: delete
+    match:
+        content_type: klib_test_001
+
+-
+    type: content_type
+    mode: delete
+    identifier: klib_test_001

@@ -9,7 +9,7 @@ use Symfony\Component\Console\Output\StreamOutput;
 abstract class CommandTestBase extends KernelTestCase
 {
     protected $dslDir;
-    protected $targetBundle = 'EzPublishCoreBundle'; // it is always present :-)
+    //protected $targetBundle = 'EzPublishCoreBundle'; // it is always present :-)
     protected $leftovers = array();
 
     /** @var \Symfony\Component\DependencyInjection\ContainerInterface $container */

@@ -1,0 +1,7 @@
+services:
+    ez_loremipsum_bundle.test.executor.assert:
+        class: Kaliop\eZLoremIpsumBundle\Tests\helper\AssertExecutor
+        arguments:
+            - '@ez_migration_bundle.reference_resolver.customreference'
+        tags:
+            - { name: ez_migration_bundle.executor }

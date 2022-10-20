@@ -7,4 +7,4 @@ if (!file_exists($file = __DIR__.'/../vendor/autoload.php') && !file_exists($fil
 
 $loader = require $file;
 
-//Kaliop\EzLoremIpsumBundle\DependencyInjection\EzLoremIpsumExtension::$loadTestConfig = true;
+Kaliop\eZLoremIpsumBundle\DependencyInjection\EzLoremIpsumExtension::$loadTestConfig = true;
