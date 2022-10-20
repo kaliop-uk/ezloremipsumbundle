@@ -14,21 +14,35 @@
             name: Name
             identifier: name
         -
-            type: ezxmltext
-            name: Body
-            identifier: body
-        -
             type: ezbinaryfile
             name: File
             identifier: file
+        -
+            type: ezemail
+            name: Email
+            identifier: email
+        -
+            type: ezfloat
+            name: Float
+            identifier: float
+            validator-configuration:
+                FloatValueValidator: { minFloatValue: 0, maxFloatValue: 999999 }
         #-
         #    type: ezimage
         #    name: Image
         #    identifier: image
         -
+            type: ezinteger
+            name: Integer
+            identifier: integer
+        -
             type: eztime
             name: Time
             identifier: time
+        -
+            type: ezxmltext
+            name: Body
+            identifier: body
 
 # EXECUTE
 -
@@ -58,9 +72,12 @@
                     parent_location: reference:parent_folder_loc
                     attributes:
                         name: "Test item [faker:uuid]"
-                        time: "@[faker:unixTime]"
-                        body: "[faker:randomXmlText()]"
+                        body: "faker:randomXmlText()"
+                        email: "faker:email"
                         file: "[faker:pdfFile()]"
+                        float: "faker:randomFloat(10, 0, 999999)"
+                        integer: "faker:randomDigit"
+                        time: "@[faker:unixTime]"
 
 # VERIFY
 -
