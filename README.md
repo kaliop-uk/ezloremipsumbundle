@@ -89,7 +89,9 @@ of the Faker library. In no particular order, it can be used to generate:
 
 The full list of supported data is documented at https://fakerphp.github.io/
 
-A more detailed description of the supported syntax is given in the [DSL Language description](Resources/doc/DSL/Faker.md)
+A more detailed description of the supported syntax is given in the [DSL Language description](Resources/doc/DSL/Faker.md).
+
+Further usage examples can be found in the [migration used to run CI tests](Tests/dsl/good/LipsumTestOK001.yml).
 
 *NB* there is a known bug when using the `image` provider and there is a problem downloading an image file from the
 remote service. The recommended workaround is to use the `picture` provider instead.

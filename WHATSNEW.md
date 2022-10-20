@@ -1,5 +1,5 @@
-Version 1.6.0 (unreleased)
-==========================
+Version 1.6.0
+=============
 
 * Mark compatible with eZMigrationBundle 5.13 and later
 

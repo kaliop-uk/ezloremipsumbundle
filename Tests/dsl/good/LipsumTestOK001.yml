@@ -93,7 +93,7 @@
                         name: "Test item [faker:uuid]"
                         body: "faker:randomXmlText()"
                         # NB: it seems that some country codes from Faker are not known to eZ...
-                        country: "faker:countryCode"
+                        #country: "faker:countryCode"
                         email: "faker:email"
                         file: "[faker:pdfFile()]"
                         float: "faker:randomFloat(10, 0, 999999)"
