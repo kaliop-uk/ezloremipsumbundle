@@ -42,8 +42,8 @@ each.
 ## Requirements
 
 * eZPublish 2014.11 or later or eZPlatform
-* eZMigrationBundle
-* Faker from FZaninotto
+* eZMigrationBundle 5.1.1 or later
+* Faker, originally from FZaninotto
 * TCPDF from tecnick.com
 
 (all of the above are handled automatically using composer)
@@ -87,7 +87,7 @@ of the Faker library. In no particular order, it can be used to generate:
 - numbers
 - images and files
 
-The full list of supported data is documented at https://github.com/fzaninotto/Faker
+The full list of supported data is documented at https://fakerphp.github.io/
 
 A more detailed description of the supported syntax is given in the [DSL Language description](Resources/doc/DSL/Faker.md)
 
@@ -179,4 +179,4 @@ Many thanks to Crevillo for the suggestion to look at AliceBundle and to FZanino
 
 [![Build Status](https://github.com/kaliop-uk/ezloremipsumbundle/actions/workflows/ci.yml/badge.svg)](https://github.com/kaliop-uk/ezloremipsumbundle/actions/workflows/ci.yml)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/kaliop-uk/ezloremipsumbundle/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/kaliop-uk/ezloremipsumbundle/?branch=main)
-[![Code Coverage](https://codecov.io/gh/kaliop-uk/ezloremipsumbundle/branch/main/graph/badge.svg)](https://codecov.io/gh/kaliop-uk/ezloremipsumbundle)
+[![Code Coverage](https://codecov.io/gh/kaliop-uk/ezloremipsumbundle/branch/main/graph/badge.svg)](https://codecov.io/gh/kaliop-uk/ezloremipsumbundle/tree/main)

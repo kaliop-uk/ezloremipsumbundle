@@ -66,9 +66,10 @@ jobs:
         #                      ez_composer_lock: ''
         #                      operating-system: 'ubuntu-20.04'
         steps:
-            - run: |
-                sudo apt-get update -y
-                sudo apt-get install -y pstotext
+            # weirdly enough, we manage to crash ghostscript running the tests. Not having pstotext makes them pass...
+            #- run: |
+            #    sudo apt-get update -y
+            #    sudo apt-get install -y pstotext
             -
                 uses: actions/checkout@v2
             # Although this action is useful, we prefer to use the same script to set up php that we use for the
