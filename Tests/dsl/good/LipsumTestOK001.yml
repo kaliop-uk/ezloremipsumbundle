@@ -110,9 +110,10 @@
     match:
         content_type: klib_test_001
     references:
-        # setting this reference does require min. migration bundle version:
-        identifier: contents_count
-        attribute: count
+        -
+            # setting this reference does require min. migration bundle version:
+            identifier: contents_count
+            attribute: count
 -
     type: assert
     target: reference
