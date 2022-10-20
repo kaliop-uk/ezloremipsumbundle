@@ -18,6 +18,13 @@
             name: File
             identifier: file
         -
+            type: ezcountry
+            name: Country
+            identifier: country
+            field-settings:
+                isMultiple: true
+            default-value: [ AF ]
+        -
             type: ezemail
             name: Email
             identifier: email
@@ -36,9 +43,21 @@
             name: Integer
             identifier: integer
         -
+            type: ezisbn
+            name: Isbn
+            identifier: isbn
+        -
+            type: eztext
+            name: Text
+            identifier: text
+        -
             type: eztime
             name: Time
             identifier: time
+        -
+            type: ezurl
+            name: Url
+            identifier: url
         -
             type: ezxmltext
             name: Body
@@ -73,11 +92,15 @@
                     attributes:
                         name: "Test item [faker:uuid]"
                         body: "faker:randomXmlText()"
+                        country: ["faker:countryCode"]
                         email: "faker:email"
                         file: "[faker:pdfFile()]"
                         float: "faker:randomFloat(10, 0, 999999)"
                         integer: "faker:randomDigit"
+                        isbn: "faker:isbn13"
+                        text: "faker:text"
                         time: "@[faker:unixTime]"
+                        url: "faker:maxDistinct(10).url"
 
 # VERIFY
 -

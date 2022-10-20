@@ -32,7 +32,7 @@ class RunTest extends CommandExecutingTest
     protected function runMigration($path, array $params = array())
     {
         /// @todo should we first remove the migration if it was already run?
-        $params = array_merge($params, array('--path' => array($path), '-n' => true, '-f' => true, '-u' => true));
+        $params = array_merge($params, array('--path' => array($path), '-n' => true, '-u' => true));
         $out = $this->runCommand('kaliop:migration:migrate', $params);
         // check that there are no notes related to adding the migration before execution
         //$this->assertNotContains('Skipping ' . basename($path), $out, "Migration definition is incorrect?");
