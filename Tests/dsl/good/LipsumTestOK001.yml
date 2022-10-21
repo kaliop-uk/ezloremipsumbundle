@@ -34,10 +34,10 @@
             identifier: float
             validator-configuration:
                 FloatValueValidator: { minFloatValue: 0, maxFloatValue: 999999 }
-        #-
-        #    type: ezimage
-        #    name: Image
-        #    identifier: image
+        -
+            type: ezimage
+            name: Image
+            identifier: image
         -
             type: ezinteger
             name: Integer
@@ -46,6 +46,10 @@
             type: ezisbn
             name: Isbn
             identifier: isbn
+        -
+            type: ezrichtext
+            name: Richtext
+            identifier: richtext
         -
             type: eztext
             name: Text
@@ -60,8 +64,8 @@
             identifier: url
         -
             type: ezxmltext
-            name: Body
-            identifier: body
+            name: Xmltext
+            identifier: xmltext
 
 # EXECUTE
 -
@@ -90,18 +94,20 @@
                     content_type: klib_test_001
                     parent_location: reference:parent_folder_loc
                     attributes:
-                        name: "Test item [faker:uuid]"
-                        body: "faker:randomXmlText()"
-                        # NB: it seems that some country codes from Faker are not known to eZ...
+                        name: "Test item [faker:uuid] : [faker:adjective] [faker:noun] [faker:animal]"
+                        # @todo it seems that some country codes from Faker are not known to eZ and/or we have an array-vs-string issue...
                         #country: "faker:countryCode"
                         email: "faker:email"
                         file: "[faker:pdfFile()]"
                         float: "faker:randomFloat(10, 0, 999999)"
                         integer: "faker:randomDigit"
-                        isbn: "faker:isbn13"
+                        # @todo isbn13 fields crash ezp community on mysql 8.0, trying to insert a 13-digits integer into ezsearch_object_word_link.integer_value
+                        #isbn: "faker:isbn13"
+                        richtext: "faker:randomRichText()"
                         text: "faker:text"
                         time: "@[faker:unixTime]"
                         url: "faker:maxDistinct(10).url"
+                        xmltext: "faker:randomXmlText()"
 
 # VERIFY
 -
@@ -111,7 +117,6 @@
         content_type: klib_test_001
     references:
         -
-            # setting this reference does require min. migration bundle version:
             identifier: contents_count
             attribute: count
 -
