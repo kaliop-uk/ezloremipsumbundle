@@ -78,7 +78,7 @@
             content_type: klib_test_001
             parent_location: 2
             attributes:
-                name: " Test item [loop:iteration] - [faker:sentence(3)]"
+                name: 'Test item [loop:iteration] - [faker:sentence(3)] - [faker: randomelement({0:"hello", 1:"world"})]'
             references:
                 -
                     attribute: location_id
@@ -94,7 +94,7 @@
                     content_type: klib_test_001
                     parent_location: reference:parent_folder_loc
                     attributes:
-                        name: "Test item [faker:uuid] : [faker:adjective] [faker:noun] [faker:animal]"
+                        name: "Test item [faker:uuid] - [faker:adjective] [faker:noun] [faker:animal]"
                         # @todo it seems that some country codes from Faker are not known to eZ and/or we have an array-vs-string issue...
                         #country: "faker:countryCode"
                         email: "faker:email"

@@ -52,6 +52,12 @@ you can use this instead:
         It works as the original `randomHtml` property, except that it generates rich text compatible with the XmlText
         field type.
 
+    * the `randomXmlText($maxDepth=4, $maxWidth=4)` property.
+        Same as the above, for the RichText field type.
+
+    * the `adjective`, `animal` and `noun` properties, which generate each a single word of the specific type.
+        Words are only in english, and they come from lists deployed as .txt file within the bundle
+
     * the `pdfFile($dir = '/tmp', $pages=5, $title = '', $author = '', $subject = '', $keywords = '')` property.
         It can be used to generate PDF files with random contents, and will return the name of the generated file
 
