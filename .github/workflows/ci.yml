@@ -73,6 +73,9 @@ jobs:
             #        path: /tmp/composer-cache
             #        key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
+            # @todo stop any unused service and process to save ram/cpu: php-fpm (esp. if a != php version), docker,
+            #       containerd, snapd, ModemManager?, pakagekit?, xsp4.exe
+
             # This sets up php and starts mysql
             -   name: set up the test env
                 run: |
@@ -100,6 +103,7 @@ jobs:
                 run: |
                     #env
                     #php -i
+                    #systemctl list-units --all --type=service --no-pager | grep running
                     #ps auxwww
                     #dpkg --list | grep php
                     #pwd
